@@ -14,8 +14,8 @@ id_counter = {}
 # while 'paging' in res.json():
 for post in res.json()['data']:
     post_id = post['id']
-    res_post = requests.get('https://graph.facebook.com/v2.8/{}/reactions?limit=1000&access_token={}'.format(post_id, token))
     while 'paging' in res_post.json():
+        res_post = requests.get('https://graph.facebook.com/v2.8/{}/reactions?limit=1000&access_token={}'.format(post_id, token))
         for reaction in res_post.json()['data']:
             reaction_id = reaction['id']
             id_counter.setdefault(reaction_id, 0)
