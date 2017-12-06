@@ -5,12 +5,13 @@ import pandas as pd
 #token
 print('Please enter the token from Facebook: ')
 token = input()
+#fanpage
 print('Please enter the fanpage id: ')
 fanpage_id = input()
-#send request
+#send request to FB
 res = requests.get('https://graph.facebook.com/v2.8/{}/posts?limit=100&access_token={}'.format(fanpage_id,token))
 id_counter = {}
-#iterate all the data from res and withdraw the ip
+#Loop through the data from res and count the ip
 # while 'paging' in res.json():
 for post in res.json()['data']:
     post_id = post['id']
