@@ -35,7 +35,3 @@ s = pd.Series(id_counter, name='次數')
 s.sort(ascending=False)
 for the_id in list(s.index[:30]):
     webbrowser.open('https://www.facebook.com/'+the_id)
-
-s.index.name = 'id'
-df = pd.DataFrame(s, columns=['次數'])
-df.to_csv('haha.csv')
